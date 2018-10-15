@@ -11,6 +11,13 @@ cap = cv2.VideoCapture('tentativa1.mov')
 
 ListaBlob = {}
 
+try: 
+    fh = open('file.txt', 'w') 
+except FileNotFoundError: 
+    fh= open("file.txt","w+")
+    pass
+    open('file.txt', 'w').close()
+
 while True:
 
     ret, frame = cap.read()
@@ -43,8 +50,10 @@ while True:
             ListaBlob[IDs[c]] = (x,y)
 
             print(ListaBlob)
+            fh.write(str(IDs[c]) + ' ' + 'Coor: ' + str(x) + ',' + str (y) + '\r')
             cv2.circle(frame,(x, y), 30, (0,255,0), 1)
             cv2.putText(frame,str(IDs[c]),(x,y), font, 1,(255,255,255),2,cv2.LINE_AA)
+            
             # aruco.drawDetectedMarkers(frame,res[0],res[1])
 
 
