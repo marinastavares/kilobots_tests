@@ -7,8 +7,8 @@ font = cv2.FONT_HERSHEY_SCRIPT_SIMPLEX
 
 dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_ARUCO_ORIGINAL)
 
-cap = cv2.VideoCapture(0)
-print('oi')
+cap = cv2.VideoCapture('tentativa1.mov')
+
 ListaBlob = {}
 
 while True:
@@ -41,16 +41,14 @@ while True:
             ListaBlob[IDs[c]] = (x,y)
 
             print(ListaBlob)
+            cv2.circle(frame,(x, y), 30, (0,255,0), 1)
+            # aruco.drawDetectedMarkers(frame,res[0],res[1])
 
-            aruco.drawDetectedMarkers(frame,res[0],res[1])
-
-            # cv2.putText(img,'.',(int(kiloblob.x),int(kiloblob.y)), font, 1, (0,0,200), 2, cv2.LINE_AA)
 
     cv2.imshow('arUco', frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# print(ListaBlob)
 cap.release()
 cv2.destroyAllWindows()
