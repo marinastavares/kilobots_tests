@@ -3,7 +3,7 @@ import numpy as np
 import cv2.aruco as aruco
 import re
 
-font = cv2.FONT_HERSHEY_SCRIPT_SIMPLEX
+font = cv2.FONT_HERSHEY_SIMPLEX
 
 dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_ARUCO_ORIGINAL)
 
@@ -16,6 +16,8 @@ while True:
     ret, frame = cap.read()
     #frame = cv2.resize(img, (500,500))
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cv2.putText(frame,'Detection with ArUco Kilobots@UFSC',(50,50), font, 1,(0,0,0),1,cv2.LINE_AA)
+
 
     res = aruco.detectMarkers(gray, dictionary) #res[0] refere-se aos corners e res[1] aos IDs
 
@@ -42,6 +44,7 @@ while True:
 
             print(ListaBlob)
             cv2.circle(frame,(x, y), 30, (0,255,0), 1)
+            cv2.putText(frame,str(IDs[c]),(x,y), font, 1,(255,255,255),2,cv2.LINE_AA)
             # aruco.drawDetectedMarkers(frame,res[0],res[1])
 
 
