@@ -42,8 +42,7 @@ while True:
     # Aqui os Corners estão posicionados em x e y do 1o canto do quadrado, 2o canto até o 4o canto, 
     # o 9 elemento será um retorno do tipo de instancia usada, no caso float
     Corners = [int(s) for s in re.findall(r'\d+', Corners)]
-    print(Corners)
-
+    
     # Na segunda posicao de res é armazenado o valor de ID do Aruco
     IDs = str(0 if res[1] is None else res[1])
     # Utiliza funcao para tirar separador \d
