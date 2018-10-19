@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 import cv2.aruco as aruco
 import re
+from testing_interface import x
+
 
 # Fonte utilizada 
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -10,7 +12,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_ARUCO_ORIGINAL)
 
 # Função para captar o video, para se utilizar a webcam, basta alterar para 0
-cap = cv2.VideoCapture('tentativa1.mov')
+cap = cv2.VideoCapture(x)
 
 # Cria um dicionário, que liga keys - IDs - a um objeto
 ListaKilobots = {}
@@ -79,8 +81,8 @@ while True:
             # Escreve o ID
             cv2.putText(frame,str(IDs[c]),(x,y), font, 1,(255,255,255),2,cv2.LINE_AA)
 
-    # mostra frame por frame
-    cv2.imshow('arUco', frame)
+            cv2.imshow('Aruco',frame)
+
 
     # funcao para sair do video
     if cv2.waitKey(1) & 0xFF == ord('q'):
