@@ -71,7 +71,9 @@ while True:
             ListaKilobots[IDs[c]] = (x,y)
 
             # Escreve as coordenadas em um arquivo txt
-            fh.write(str(IDs[c]) + ' ' + 'Coor: ' + str(x) + ',' + str (y) + '\r')
+            # Escreve só os IDs diferentes de 0
+            if (IDs[c] != 0): 
+                fh.write(str(IDs[c]) + ' ' + 'Coor: ' + str(x) + ',' + str (y) + '\r')
 
             # Funcoes para escrever nos frames
             # Escreve título
